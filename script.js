@@ -16,7 +16,6 @@ async function getCoordinates(city) {
 }
 
 async function getWeather(lat, lon) {
-  // Fetches current weather AND daily max/min temperatures
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto`;
   const res = await fetch(url);
   return await res.json();
@@ -43,7 +42,7 @@ function displayWeather(cityName, data) {
   const [icon, desc] = getWeatherIcon(current.weather_code);
   const date = new Date().toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'short'});
 
-  // 1. Current Weather Section
+
   currentWeatherDiv.innerHTML = `
     <div class="city-wrapper">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -84,8 +83,6 @@ Wind</p>
       </div>
     </div>
   `;
-
-  // 2. Forecast Section
   forecastDiv.innerHTML = "";
   for (let i = 1; i <= 3; i++) {
     const dayName = new Date(daily.time[i]).toLocaleDateString('en-GB', { weekday:'short'});
