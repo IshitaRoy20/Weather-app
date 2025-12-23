@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #1a1a1a;
+  background: url('bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  padding: 10px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 360px;
+  /* This ensures the card height adjusts to the screen without overflowing */
+  height: 95vh; 
+  max-height: 700px;
+  
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  padding: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  color: white;
+
+  /* Flex column keeps everything spaced out inside the box */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Search Bar Area */
+.search-container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
+#cityInput {
+  flex: 1;
+  padding: 10px 15px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+#searchBtn {
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Header Section */
+.city-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.city-wrapper h2 { font-size: 1.6rem; font-weight: 600; }
+
+/* Date Alignment */
+.date-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-align: center; /* Center aligned as requested */
+  display: block;
+  width: 100%;
+}
+
+/* Main Temperature */
+.temp-main {
+  text-align: center;
+  font-size: clamp(3.5rem, 12vh, 4.5rem); 
+  font-weight: 700;
+  line-height: 1;
+  margin: 15px 0 5px 0;
+}
+
+.high-low-container {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.weather-desc {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Details Row (Humidity/Wind) */
+.details-row {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 15px 10px;
+  border-radius: 25px;
+  margin: 10px 0;
+}
+
+.detail-item {
+  text-align: center;
+}
+
+.detail-item p { font-size: 0.75rem; opacity: 0.7; }
+.detail-item span { font-weight: 700; font-size: 1.1rem; }
+
+/* Forecast Section */
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.forecast-day {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 5px;
+  border-radius: 20px;
+  text-align: center;
+  min-width: 0; /* Prevents overflow */
+}
+
+.forecast-day p { font-size: 0.7rem; margin-bottom: 5px; }
+.f-high { font-weight: 700; font-size: 0.85rem; display: block; }
+.f-low { font-size: 0.7rem; opacity: 0.5; display: block; }
